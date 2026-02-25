@@ -1,51 +1,57 @@
 <script>
-    let hpBoss = 300;
+    let hpBoss = 3000;
+    let hpIndio = 1000;
     let manaHeroi = 150;
-    let manaGastoTotal = 0;
+    let manaGastaTotal = 0;
     let acao;
 
-    console.log("O cobra dançando surgiu: 300hp");
+    alert("O cacique cobra que fuma surgiu: 3000p");
     for (let turno = 1; turno <= 15; turno++) {
         if (hpBoss <= 0) {
-            console.log("O cobra dançando virou fumaça de cachimbo!");
+            alert("O cacique cobra que fuma virou gumaça de cachimbo!");
             break;
         }
+        // retorna 0, 1 ou 2. Soma para trazer 1, 2 ou 3
+        //acao = Math.floor(Math.random() * 3) + 1
+        let menu = "Escolha sua ação: \n"
+                    + " 1 -Facada \n"
+                    + " 2 -Flechada \n"
+                    + " 3 -fogo do indio \n";
+        let escolha = prompt(menu);
+        let acao = parseInt(escolha);
 
-        // retorna 1, 2 ou 3
-        acao = Math.floor(Math.random() * 3) + 1;
-        switch (acao) {
+        alert("Ação: " + acao)
+        switch(acao) {
             case 1:
-                console.log("ataque Básico. 20 dano");
+                alert("Facada. 20 dano");
+                // hpBoss = hpBoss - 20;
                 hpBoss -= 20;
-                manaGastoTotal += 10;
                 break;
             case 2:
                 if (manaHeroi >= 30) {
-                    console.log("paulada. 50 dano");
+                    alert("Flechada. 50 dano");
                     hpBoss -= 50;
                     manaHeroi -= 30;
-                    manaGastoTotal += 30;
+                    manaGastaTotal += 30;
                 } else {
-                    console.log("Mana insuficiente para paulada");
+                    alert("Mana insuficiente!");
                 }
                 break;
             case 3:
-                if (manaGastoTotal >= 50) {
-                    console.log("voadora. 150 dano");
+                if (manaGastaTotal >= 50) {
+                    alert("fogo do indio. 150 dano");
                     hpBoss -= 150;
-                    manaGastoTotal = 0;
+                    manaGastaTotal = 0;
                 } else {
-                    console.log("voadora não carregada");
+                    alert("fogo do indio não carregado!");
                 }
                 break;
         }
-
-        console.log("HP Cobra Dançando: " + hpBoss + " | Mana: " + manaHeroi);
+        alert("HP Boss: " + hpBoss + " Mana:" + manaHeroi);
     }
-
-    if (hpBoss > 0) {
-        console.log("O cobra dançando venceu!, seu BETA");
+    if (hpBoss <= 0) { 
+        alert("Vitória, o cacique cobra que fuma foi arregaçado!");
     } else {
-        console.log("O cobra dançando foi arregaçado!");
+        alert("Missão Falhou! O cacique cobra que fuma continua vivo.");
     }
 </script>
