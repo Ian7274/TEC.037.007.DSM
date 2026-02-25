@@ -1,0 +1,63 @@
+<script>
+    let hpBoss = 3000;
+    let hpIndio = 1000
+    let manaHeroi = 150;
+    let manaGastoTotal = 0;
+    let acao;
+    
+    let menu = "Escolha sua ação:\n"
+                +" 1 flechada \n"
+                +" 2 paulada \n"
+                +" 3 voadoora \n";
+     let escolha = prompt(menu);
+     acao = parseInt(escolha);
+    if (isNaN(acao) || acao < 1 || acao > 3) {
+            alert("Escolha inválida! O cacique cobra que fuma riu da sua cara");
+     } else {
+    alert ("O cacique cobra que fuma surgiu: 3000p");
+    for (let turno = 1; turno <= 15; turno++) {
+        if (hpBoss <= 0) {
+           alert("O cacique cobra que fuma virou fumaça de cachimbo!");
+            break;
+        }
+
+        // retorna 1, 2 ou 3
+        acao = Math.floor(Math.random() * 3) + 1;
+        switch (acao) {
+            case 1:
+                alert("ataque Básico. 20 dano");
+                hpBoss -= 20;
+                manaGastoTotal += 10;
+                break;
+            case 2:
+                if (manaHeroi >= 30) {
+                    alert("paulada. 50 dano");
+                    hpBoss -= 50;
+                    manaHeroi -= 30;
+                    manaGastoTotal += 30;
+                } else {
+                alert("Mana insuficiente para paulada");
+                }
+                break;
+            case 3:
+                if (manaGastoTotal >= 50) {
+                  lert("voadora. 150 dano");
+                    hpBoss -= 150;
+                    manaGastoTotal = 0;
+                } else {
+                    alert("voadora não carregada");
+                }
+                break;
+        }
+
+        alert("Cacique Cobra que fuma: " + hpBoss + " | Mana: " + manaHeroi);
+        manaHeroi += 5;
+    }
+
+    if (hpBoss > 0) {
+        alert("O cacique cobra que fuma venceu!, seu BETA");
+    } else {
+        alert("O cacique cobra que fuma foi arregaçado!");
+    }
+    }
+</script>
