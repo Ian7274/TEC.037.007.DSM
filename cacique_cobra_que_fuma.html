@@ -17,6 +17,8 @@
                     + " 1 -Facada \n"
                     + " 2 -Flechada \n"
                     + " 3 -fogo do indio \n";
+                    + " 4 -desistir \n";
+                    
         let escolha = prompt(menu);
         let acao = parseInt(escolha);
 
@@ -46,10 +48,18 @@
                     alert("fogo do indio não carregado!");
                 }
                 break;
+            case 4:
+                alert("Você desistiu!");
+                break;
         }
         alert("HP Boss: " + hpBoss + " Mana:" + manaHeroi);
     }
     if (hpBoss <= 0) { 
+        if (Math.random() < 0.8) {
+            alert("O cacique cobra que fuma virou fumaça de cachimbo!");
+        } else {
+            alert("O cacique cobra que fuma virou pó de tabaco!");
+        }
         alert("Vitória, o cacique cobra que fuma foi arregaçado!");
     } else {
         alert("Missão Falhou! O cacique cobra que fuma continua vivo.");
