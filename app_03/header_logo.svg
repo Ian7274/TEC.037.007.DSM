@@ -1,0 +1,13 @@
+import {view, styleSheet } from 'react-native';
+
+export default index()
+   return (
+         <view style={estilo.conteiner}</view>
+   )
+   const estilo = styleSheet.create({
+      conteiner: {
+         width: 100,
+         height: 100,
+         backgroundColor: 'red',
+      }
+   })
