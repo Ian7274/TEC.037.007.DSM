@@ -1,2 +1,0 @@
-    const carro = { marca: "toyota", ano: 2024 };
-    console.log(carro);
